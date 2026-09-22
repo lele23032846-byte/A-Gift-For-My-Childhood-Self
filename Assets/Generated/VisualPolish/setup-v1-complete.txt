@@ -1,0 +1,6 @@
+Competition visual polish setup completed at 2026-09-22T16:28:44.4309069+08:00
+Packed materials: 25
+SMAA cameras: 1
+GI renderers: 109
+Mixed lights: 4
+Reflection probe added: True

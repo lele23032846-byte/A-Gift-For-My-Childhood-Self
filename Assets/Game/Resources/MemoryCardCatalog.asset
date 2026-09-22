@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b939e1c0dc8a44594cacdf5150dcf7, type: 3}
+  m_Name: MemoryCardCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::MemoryCardCatalog
+  entries:
+  - chapter: 0
+    memoryLabel: MEMORY 01
+    chinese: "\u6211\u8BB0\u5F97\u4F60\u3002"
+    english: I remember you.
+  - chapter: 1
+    memoryLabel: MEMORY 02
+    chinese: "\u4F60\u4E0D\u7528\u4E00\u4E2A\u4EBA\u5BB3\u6015\u3002"
+    english: You don't have to be afraid alone.
+  - chapter: 2
+    memoryLabel: MEMORY 03
+    chinese: "\u8FD9\u4E00\u6B21\uFF0C\u6211\u966A\u4F60\u8FC7\u3002"
+    english: This time, I celebrate with you.
+  fadeInDuration: 0.5
+  holdDuration: 4
+  fadeOutDuration: 0.7

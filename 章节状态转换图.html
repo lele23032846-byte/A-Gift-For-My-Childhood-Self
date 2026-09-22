@@ -1,0 +1,130 @@
+<html style="margin:0;padding:0;">
+<title>三章顺序状态转换图（任务5）</title>
+<div style="width:100%;box-sizing:border-box;padding:12px;font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#fafafa;">
+<svg viewBox="0 0 1040 580" width="100%" style="display:block;max-width:1040px;margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#444"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <g font-size="13">
+    <rect x="640" y="14" width="92" height="26" rx="5" fill="#e3e8ef" stroke="#9aa7b8"/>
+    <text x="686" y="31" text-anchor="middle" fill="#5a6678">Locked</text>
+    <rect x="742" y="14" width="92" height="26" rx="5" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="788" y="31" text-anchor="middle" fill="#1d4ed8">Active</text>
+    <rect x="844" y="14" width="92" height="26" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="890" y="31" text-anchor="middle" fill="#15803d">Completed</text>
+    <text x="630" y="31" text-anchor="end" fill="#555">图例：</text>
+  </g>
+
+  <!-- Snapshot A label -->
+  <text x="30" y="40" font-size="18" font-weight="bold" fill="#222">快照 A — 初始状态（进入游戏，Awake）</text>
+
+  <!-- Row A groups -->
+  <!-- LostPet: Active -->
+  <g>
+    <text x="30" y="78" font-size="16" font-weight="bold" fill="#222">Chapter 1 · LostPet</text>
+    <rect x="30" y="92" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="78" y="119" text-anchor="middle" font-size="14" fill="#8a96a8">Locked</text>
+    <path d="M128,114 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="140" y="92" width="96" height="44" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="188" y="119" text-anchor="middle" font-size="14" font-weight="bold" fill="#1d4ed8">Active</text>
+    <path d="M238,114 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="250" y="92" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="298" y="119" text-anchor="middle" font-size="14" fill="#8a96a8">Completed</text>
+  </g>
+  <!-- AfraidOfDark: Locked -->
+  <g>
+    <text x="370" y="78" font-size="16" font-weight="bold" fill="#222">Chapter 2 · AfraidOfDark</text>
+    <rect x="370" y="92" width="96" height="44" rx="6" fill="#e3e8ef" stroke="#9aa7b8" stroke-width="2"/>
+    <text x="418" y="119" text-anchor="middle" font-size="14" font-weight="bold" fill="#5a6678">Locked</text>
+    <path d="M468,114 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="480" y="92" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="528" y="119" text-anchor="middle" font-size="14" fill="#8a96a8">Active</text>
+    <path d="M578,114 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="590" y="92" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="638" y="119" text-anchor="middle" font-size="14" fill="#8a96a8">Completed</text>
+  </g>
+  <!-- BirthdayAlone: Locked -->
+  <g>
+    <text x="710" y="78" font-size="16" font-weight="bold" fill="#222">Chapter 3 · BirthdayAlone</text>
+    <rect x="710" y="92" width="96" height="44" rx="6" fill="#e3e8ef" stroke="#9aa7b8" stroke-width="2"/>
+    <text x="758" y="119" text-anchor="middle" font-size="14" font-weight="bold" fill="#5a6678">Locked</text>
+    <path d="M808,114 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="820" y="92" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="868" y="119" text-anchor="middle" font-size="14" fill="#8a96a8">Active</text>
+    <path d="M918,114 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="930" y="92" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="978" y="119" text-anchor="middle" font-size="14" fill="#8a96a8">Completed</text>
+  </g>
+
+  <!-- Arrow into trigger band -->
+  <path d="M520,140 L520,166" stroke="#444" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Trigger band -->
+  <rect x="30" y="170" width="996" height="86" rx="10" fill="#fff7ed" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="528" y="202" text-anchor="middle" font-size="16" font-weight="bold" fill="#9a3412">唯一触发条件（第一章）：SmallBoxPlacement 的 ItemPlacement 真实放置 SmallBox 成功</text>
+  <text x="528" y="228" text-anchor="middle" font-size="14" fill="#7c2d12">ItemPlacement：拥有 SmallBox → TryRemoveItem 成功 → IsPlaced=true → 触发 ItemPlaced(SmallBox)</text>
+  <text x="528" y="248" text-anchor="middle" font-size="14" fill="#7c2d12">ChapterManager 收到该【指定放置点实例】的事件 → TryCompleteChapter(LostPet) → 发出 ChapterCompleted(LostPet)</text>
+
+  <!-- Arrow out of trigger band -->
+  <path d="M520,260 L520,296" stroke="#444" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Snapshot B label -->
+  <text x="30" y="312" font-size="18" font-weight="bold" fill="#222">快照 B — 放置小盒后</text>
+
+  <!-- Row B groups -->
+  <!-- LostPet: Completed -->
+  <g>
+    <text x="30" y="348" font-size="16" font-weight="bold" fill="#222">Chapter 1 · LostPet</text>
+    <rect x="30" y="362" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="78" y="389" text-anchor="middle" font-size="14" fill="#8a96a8">Locked</text>
+    <path d="M128,384 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="140" y="362" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="188" y="389" text-anchor="middle" font-size="14" fill="#8a96a8">Active</text>
+    <path d="M238,384 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="250" y="362" width="96" height="44" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="298" y="389" text-anchor="middle" font-size="14" font-weight="bold" fill="#15803d">Completed</text>
+  </g>
+  <!-- AfraidOfDark: Active -->
+  <g>
+    <text x="370" y="348" font-size="16" font-weight="bold" fill="#222">Chapter 2 · AfraidOfDark</text>
+    <rect x="370" y="362" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="418" y="389" text-anchor="middle" font-size="14" fill="#8a96a8">Locked</text>
+    <path d="M468,384 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="480" y="362" width="96" height="44" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="528" y="389" text-anchor="middle" font-size="14" font-weight="bold" fill="#1d4ed8">Active</text>
+    <path d="M578,384 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="590" y="362" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="638" y="389" text-anchor="middle" font-size="14" fill="#8a96a8">Completed</text>
+  </g>
+  <!-- BirthdayAlone: Locked -->
+  <g>
+    <text x="710" y="348" font-size="16" font-weight="bold" fill="#222">Chapter 3 · BirthdayAlone</text>
+    <rect x="710" y="362" width="96" height="44" rx="6" fill="#e3e8ef" stroke="#9aa7b8" stroke-width="2"/>
+    <text x="758" y="389" text-anchor="middle" font-size="14" font-weight="bold" fill="#5a6678">Locked</text>
+    <path d="M808,384 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="820" y="362" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="868" y="389" text-anchor="middle" font-size="14" fill="#8a96a8">Active</text>
+    <path d="M918,384 l8,0" stroke="#bbb" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="930" y="362" width="96" height="44" rx="6" fill="#fff" stroke="#9aa7b8"/>
+    <text x="978" y="389" text-anchor="middle" font-size="14" fill="#8a96a8">Completed</text>
+  </g>
+
+  <!-- Guard boxes -->
+  <rect x="30" y="440" width="490" height="110" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="50" y="470" font-size="15" font-weight="bold" fill="#991b1b">守卫 1 — 未解锁禁止提前完成</text>
+  <text x="50" y="496" font-size="13.5" fill="#7f1d1d">TryCompleteChapter(AfraidOfDark / BirthdayAlone) 在 Locked 时 → false</text>
+  <text x="50" y="518" font-size="13.5" fill="#7f1d1d">状态零变化、ChapterCompleted 零触发；顺序只能 LostPet → AfraidOfDark → BirthdayAlone</text>
+  <text x="50" y="540" font-size="13.5" fill="#7f1d1d">没有物品时对准放置点按 E：CanInteract=false，ItemPlaced 永不发出</text>
+
+  <rect x="536" y="440" width="490" height="110" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="556" y="470" font-size="15" font-weight="bold" fill="#166534">守卫 2 — 重复请求不能重复推进</text>
+  <text x="556" y="496" font-size="13.5" fill="#14532d">章节 Completed 后再 TryCompleteChapter → false，不重复发事件</text>
+  <text x="556" y="518" font-size="13.5" fill="#14532d">重复放置请求被 ItemPlacement.IsPlaced 与已禁用的交互碰撞体拦截</text>
+  <text x="556" y="540" font-size="13.5" fill="#14532d">每章 ChapterCompleted 恰好一次；BirthdayAlone 保持 Locked（不跳过第二章）</text>
+</svg>
+</div>
+</html>

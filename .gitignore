@@ -112,3 +112,9 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Project-local verification artifacts and manual backups
+/[Aa]ssets/[Tt]emp/
+/[Aa]ssets/[Mm]emory[Vv]erification/
+/[Mm]emory[Vv]erification/
+*.bak
