@@ -29,23 +29,23 @@
 
 ## 4. 目录职责
 
-| 路径 | 职责 |
-| --- | --- |
-| `Assets/Game/Scenes` | 正式游戏场景；当前只有 `SC_Bedroom` |
-| `Assets/Game/Scripts/Player` | 第一人称移动、视角和相机防穿 |
-| `Assets/Game/Scripts/Interaction` | 通用交互接口、玩家射线交互、门交互 |
-| `Assets/Game/Scripts/Items` | 物品 Id、背包、拾取、放置 |
-| `Assets/Game/Scripts/Chapters` | 章节 Id、状态与顺序推进 |
-| `Assets/Game/Scripts/UI` | 交互提示、背包、菜单、记忆演出 |
-| `Assets/Game/Editor` | 场景配置、修复和验收工具；部分工具会保存或改写场景 |
-| `Assets/Game/Prefabs` | 小盒预制体与材质 |
-| `Assets/Game/Resources` | 运行时加载的记忆文案和中文字体 |
-| `Assets/TripoAssets` | 外部/AI 模型与贴图；来源状态见 `ASSET_SOURCES.md` |
-| `Assets/Generated/MemoryLook` | 记忆视觉层；包含运行时必需代码，不可整体删除 |
-| `Assets/Generated/VisualPolish` | 烘焙、反射和材质通道等视觉生成资源 |
-| `Assets/Settings` | URP 和渲染设置 |
-| `Packages` | Unity Package Manager 依赖及锁文件 |
-| `ProjectSettings` | Unity 项目设置、Build Settings、Tag/Layer 等 |
+| 路径                                | 职责                                    |
+| --------------------------------- | ------------------------------------- |
+| `Assets/Game/Scenes`              | 正式游戏场景；当前只有 `SC_Bedroom`              |
+| `Assets/Game/Scripts/Player`      | 第一人称移动、视角和相机防穿                        |
+| `Assets/Game/Scripts/Interaction` | 通用交互接口、玩家射线交互、门交互                     |
+| `Assets/Game/Scripts/Items`       | 物品 Id、背包、拾取、放置                        |
+| `Assets/Game/Scripts/Chapters`    | 章节 Id、状态与顺序推进                         |
+| `Assets/Game/Scripts/UI`          | 交互提示、背包、菜单、记忆演出                       |
+| `Assets/Game/Editor`              | 场景配置、修复和验收工具；部分工具会保存或改写场景             |
+| `Assets/Game/Prefabs`             | 小盒预制体与材质                              |
+| `Assets/Game/Resources`           | 运行时加载的记忆文案和中文字体                       |
+| `Assets/TripoAssets`              | 外部/AI 模型与贴图；来源状态见 `ASSET_SOURCES.md`  |
+| `Assets/Generated/MemoryLook`     | 记忆视觉层；包含运行时必需代码，不可整体删除                |
+| `Assets/Generated/VisualPolish`   | 烘焙、反射和材质通道等视觉生成资源                     |
+| `Assets/Settings`                 | URP 和渲染设置                             |
+| `Packages`                        | Unity Package Manager 依赖及锁文件          |
+| `ProjectSettings`                 | Unity 项目设置、Build Settings、Tag/Layer 等 |
 
 ## 5. 核心流程与代码入口
 
@@ -70,18 +70,18 @@ PlayerInteractor ──查找──> InteractableBase
 
 ## 6. 当前完成度
 
-| 模块 | 状态 | 说明 |
-| --- | --- | --- |
-| 第一人称移动与视角 | 已完成 | Editor Play Mode 有历史运行记录 |
-| 通用交互与提示 | 已完成 | 支持当前目标、距离、遮挡与按键触发 |
-| 卧室门开关 | 已完成 | 历史专项验收 9/9 |
-| 小盒拾取与背包 | 已完成 | 历史专项验收 15/15 |
-| 小盒指定位置放置 | 已完成 | 历史专项验收 37/37 |
-| 第一章 LostPet | 已完成 | 真实完成条件接到 `SmallBoxPlacement` |
-| 第二章 AfraidOfDark | 部分完成 | 只有 ChapterId、状态和记忆卡文案，没有完成条件或正式玩法接线 |
+| 模块                | 状态   | 说明                                  |
+| ----------------- | ---- | ----------------------------------- |
+| 第一人称移动与视角         | 已完成  | Editor Play Mode 有历史运行记录            |
+| 通用交互与提示           | 已完成  | 支持当前目标、距离、遮挡与按键触发                   |
+| 卧室门开关             | 已完成  | 历史专项验收 9/9                          |
+| 小盒拾取与背包           | 已完成  | 历史专项验收 15/15                        |
+| 小盒指定位置放置          | 已完成  | 历史专项验收 37/37                        |
+| 第一章 LostPet       | 已完成  | 真实完成条件接到 `SmallBoxPlacement`        |
+| 第二章 AfraidOfDark  | 部分完成 | 只有 ChapterId、状态和记忆卡文案，没有完成条件或正式玩法接线 |
 | 第三章 BirthdayAlone | 部分完成 | 只有 ChapterId、状态和记忆卡文案，没有完成条件或正式玩法接线 |
-| 存档/进度持久化 | 未实现 | 退出 Play 后章节与背包状态不会保留 |
-| Player Build | 待验证 | 当前只确认 Windows Editor Play Mode 历史记录 |
+| 存档/进度持久化          | 未实现  | 退出 Play 后章节与背包状态不会保留                |
+| Player Build      | 待验证  | 当前只确认 Windows Editor Play Mode 历史记录 |
 
 第二、第三章不可按正常游戏流程完成。不要把 `MemoryCardCatalog` 中存在三条文案理解成三章均已完成。
 
@@ -159,20 +159,20 @@ PlayerInteractor ──查找──> InteractableBase
 
 ## 9. Package 说明
 
-| 包 | 用途/状态 |
-| --- | --- |
-| `com.unity.render-pipelines.universal` | 运行必需；当前渲染管线 |
-| `com.unity.inputsystem` | 运行必需；移动和交互输入 |
-| `com.unity.ugui` | 运行必需；HUD、菜单和记忆卡 |
-| `com.unity.test-framework` | 开发/验收使用 |
-| `com.unity.pipeline` | 开发期自动化与 Editor 控制；不是游戏玩法依赖 |
-| `com.unity.ai.assistant` | 开发期工具；当前游戏代码未直接调用 |
-| `com.unity.ai.inference` | 当前游戏代码未发现直接调用，删除前仍需在干净分支验证 |
-| `com.unity.ai.navigation` | 当前游戏代码未发现直接调用 |
-| `com.unity.probuilder` | 编辑期建模工具，当前游戏代码未直接调用 |
-| `com.unity.visualscripting` | 当前游戏代码未发现直接调用 |
-| `com.unity.timeline` | 当前游戏代码未发现直接调用 |
-| Rider / Visual Studio IDE 包 | 开发环境集成 |
+| 包                                      | 用途/状态                      |
+| -------------------------------------- | -------------------------- |
+| `com.unity.render-pipelines.universal` | 运行必需；当前渲染管线                |
+| `com.unity.inputsystem`                | 运行必需；移动和交互输入               |
+| `com.unity.ugui`                       | 运行必需；HUD、菜单和记忆卡            |
+| `com.unity.test-framework`             | 开发/验收使用                    |
+| `com.unity.pipeline`                   | 开发期自动化与 Editor 控制；不是游戏玩法依赖 |
+| `com.unity.ai.assistant`               | 开发期工具；当前游戏代码未直接调用          |
+| `com.unity.ai.inference`               | 当前游戏代码未发现直接调用，删除前仍需在干净分支验证 |
+| `com.unity.ai.navigation`              | 当前游戏代码未发现直接调用              |
+| `com.unity.probuilder`                 | 编辑期建模工具，当前游戏代码未直接调用        |
+| `com.unity.visualscripting`            | 当前游戏代码未发现直接调用              |
+| `com.unity.timeline`                   | 当前游戏代码未发现直接调用              |
+| Rider / Visual Studio IDE 包            | 开发环境集成                     |
 
 不要仅依据“未发现直接调用”移除包；还应检查场景、资源、Editor 工具和重新导入结果。
 
@@ -188,16 +188,3 @@ PlayerInteractor ──查找──> InteractableBase
 - 版本号与输出目录
 - 场景列表
 - 目标设备上的启动、输入、字体、画面和性能验收
-
-## 11. 现有专项文档
-
-- `拾取系统_交付说明.md`
-- `放置系统_交付说明.md`
-- `交互系统_验收日志.md`
-- `门交互_验收日志.md`
-- `拾取系统_验收日志.md`
-- `放置系统_验收日志.md`
-- `章节系统_验收日志.md`
-
-专项文档用于追溯单项实现；若与本 README 或当前代码冲突，以当前代码、场景和最新验收结果为准。
-
